@@ -1,0 +1,19 @@
+li {
+  margin: 10px;
+}
+.med-ft {
+  font-size: 28px;
+}
+
+img {
+  margin: 10px;
+}
+
+.flex-center {
+  display: flex;
+  justify-content: center;
+}
+
+.text-left {
+  text-align: left;
+}

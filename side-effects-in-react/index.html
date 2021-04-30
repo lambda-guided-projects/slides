@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="./index.css">
+    <title>Composing Side Effects</title>
+</head>
+<body>
+  <textarea id="source">
+
+    class: center, middle
+    <h3 style="margin-bottom:10px;">Composing Side Effects</h3>
+    
+    ---
+    class: center, middle 
+    <h3 class="center">First of, what are side effects? </h3>
+    <img src="https://media.giphy.com/media/avPzMKapzB8D6/giphy.gif" alt="ralph-wiggum-flute">
+    ---
+    class: center, middle 
+    <h3 class="center">Side effects in general in programming</h3>
+    <p>An operation, function, or expression is said to have a side effect if it modifies some state variable value outside its local environment.<p/>
+    ---
+    class: center, middle 
+    <h3 class="center">Side effects in React</h3>
+    <p>In React side effects are anything that changes something outside the scope of a component function.</p>
+    <pre class="prettyprint lang-js">
+      /* pseudo code component function signature */
+       
+      func component = props => element
+      //Function       //Input  //Output
+
+      /* side effects occur inbetween I/O */ 
+    </pre>
+    ---
+    class: center, middle
+    <h3>Let's look at some code and then drawing board!</h3>
+    ---
+    class: center, middle
+    <h3>Syncing effect with state</h3>
+    <img src="./imgs/Screen Shot 2020-10-17 at 1.30.50 PM.png" width="50%"/>
+    ---
+    class: center, middle
+    <h3>Let's look at some code examples!</h3>
+
+
+    ---
+    class: 
+    <h3>Overview, tonight we covered:</h3>
+    <ol>
+      <li>What side effects are</li>
+      <li>How to synchronize side effects to component state</li>
+      <li>How to make networks requests from a component using useEffect hook</li>
+      <li>How to clean up useEffect hook</li>
+    </ol>
+
+    
+
+  </textarea>
+  <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
+  <script src="https://remarkjs.com/downloads/remark-latest.min.js">
+  </script>
+  <script>
+    var slideshow = remark.create();
+  </script>
+</body>
+</html>
+
+Notes:
+
+https://codesandbox.io/s/practical-buck-b6htm?file=/src/App.js
+//infinite loop can be triggered when useEffect does a state update or something that causes the component to re-render and no dep array is provided
+
+//dog api to show making API call w effect
+
+//show multiple API call example w/ algoila search example
+
+//effect clean up example
+1. have a conditonal rendering to mount and unmount component
+2. have a cleanup function in the effect hook. show console.log of unmounting
+3. have the effect function add dom event listener
+4. have event listener remove event listener
+
+
+//retro after teaching
+
+I feel like I may have moved to quickly and not explained the code enough
+
+for example, there's an example where we work with onChange event listener for multiple effects.
+
+I don't think the students had learned about onChange yet and went over it like they knew it.
+
+I also should have more prepared questions.
+
+I did the examples on the spot, and was a bit messy on some spots
+
+maybe a breakout session activity. maybe an idea would be to have the students explain to another student what side effects are and how to use useEffect(what args does it take?)

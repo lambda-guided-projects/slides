@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>event bubbling</title>
+  </head>
+  <body>
+    <div class="container">
+      <button>submit</button> 
+      <input type="text">
+    </div>
+    <script> 
+    const clickHandler = event => {
+      console.log(`${event.target.nodeName}`)
+    }
+    const button = document.querySelector('button')
+    button.addEventListener('click', clickHandler)
+    const div = document.querySelector('div')
+
+    div.addEventListener('click', () => console.log('div fired!'))
+    document.querySelector('input').addEventListener('keypress', event => {
+      if(event.keyCode === 65) {
+        console.log('A button pressed!')
+      } else {
+        console.log('other buttons pressed!')
+      }
+    })
+    </script>
+  </body>
+</html>

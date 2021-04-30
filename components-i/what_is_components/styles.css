@@ -1,0 +1,11 @@
+.default-button {
+  width: 200px;
+  height: 45px;
+  background-color: #1da1f2;
+  border-radius: 25px;
+  color: white;
+}
+
+.small {
+  width: 100px;
+}

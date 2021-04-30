@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>dom ii</title>
+  </head>
+  <body>
+    <script>
+      const body = document.querySelector('body')
+      const div = document.createElement('div')
+      
+      const divText = document.createTextNode('Hello Word!')
+      const button = document.createElement('button')
+      button.textContent = 'Click me!'
+      div.appendChild(button)
+      body.appendChild(div)
+
+      function clickHandler() {
+        alert('button clicked!')
+      }
+
+      button.addEventListener('click', event => {
+        console.log(event.target.style.color = 'green')
+      })
+
+    </script>
+  </body>
+</html>

@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="./index.css">
+    <title>components ii</title>
+</head>
+<body>
+  <textarea id="source">
+
+    class: center, middle
+    <h3 style="margin-bottom:10px;">Asynchronous JavaScript</h3>
+    <img src="./imgs/cover.gif" alt="computer-loading" width="35%">
+    ---
+    class: center, middle 
+    <h3 class="center">What is asynchronous?</h3>
+    <img src="https://media.giphy.com/media/avPzMKapzB8D6/giphy.gif" alt="ralph-wiggum-flute">
+
+    ---
+    <p style="margin-top: 20px;">Consider the code below...</p>
+    <pre class="prettyprint lang-js">
+      function now () {
+        return 21
+      }
+
+      function later () {
+        answer = answer * 2
+        console.log("Meaning of life:", answer)
+      }
+
+      var answer = now()
+
+      setTimeout(later, 1000)
+    </pre>
+    ---
+    <p>Now:</p>
+    <pre class="prettyprint lang-js">
+      function now() {
+        return 21
+      }
+
+      function later() { .. }
+
+      var answer = now()
+
+      setTimeout( later, 1000 )
+      
+    </pre>
+    <p>Later:</p>
+    <pre class="prettyprint lang-js">
+      answer = answer * 2;
+      console.log( "Meaning of life:", answer );
+    </pre>
+    ---
+    <h3>Callbacks</h3>
+    <pre class="prettyprint lang-js">
+      $.get('https://swapi.dev/api/people', function(data) {
+        console.log(data) /* yay got some data! */
+      })
+    </pre>
+    ---
+    <h3>Callbacks</h3>
+    <pre class="prettyprint lang-js">
+      $.get('https://swapi.dev/api/people', function(data) {
+        console.log(data) /* yay got some data! */
+      })
+    </pre>
+
+    this can easily turn into...callback hell
+    <pre class="prettyprint lang-js">
+      $.get('https://swapi.dev/api/people', function(data) {
+        $.get(data.anotherUrl, function(data) {
+          $.get(data.anotherUrl, function(data) {
+            $.get(data.anotherUrl, function(data) {
+              $.get(data.anotherUrl, function(data) {
+                $.get(data.anotherUrl, function(data) {
+                  ...
+                })
+              })
+            })
+          })
+        })
+      })
+    </pre>
+
+    ---
+
+    <h3>Promises</h3>
+    <p>And we are finally here to talk about Promises in JavaScript!</p>
+    <img src="./imgs/burger.gif" />
+    ---
+
+    <h3>Promises</h3>
+    <p>And we are finally here to talk about Promises in JavaScript!</p>
+    <img src="./imgs/burger.gif" />
+    <p>Before we jump into looking at code...let's have a little story time!</p>
+
+    ---
+    <h3>Promise constructor</h3>
+    <pre class="prettyprint lang-js">
+    new Promise((resolve, reject) => {
+      resolve('success!')
+      ...
+      reject('error!')
+    })
+    </pre>
+    ---
+    class: center, middle
+    <p>live coding guided project</p>
+
+    ---
+    class: center, middle
+    <p>examples and some explanations borrowed from You Don't Know JS by Kyle Simpson</p>
+    <p>If you'd like to dive deeper into JS, I highly recommend reading his books!</p>
+    <p>His books can be found free here:</p>
+    <a target="_blank" href="https://github.com/getify/You-Dont-Know-JS/blob/1st-ed/README.md">https://github.com/getify/You-Dont-Know-JS/blob/1st-ed/README.md</a>
+
+    
+
+  </textarea>
+  <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
+  <script src="https://remarkjs.com/downloads/remark-latest.min.js">
+  </script>
+  <script>
+    var slideshow = remark.create();
+  </script>
+</body>
+</html>
+
+const data = fetch('https://swapi.dev/api/people')
+             .then(res => res.json())
+             .then(res => res.results)
+
+console.log(data[0].name)
